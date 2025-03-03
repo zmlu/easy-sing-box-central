@@ -11,7 +11,11 @@ echo "重置 easy-sing-box..."
 rm -rf /opt/easy-sing-box-central/
 cd /opt && git clone -q https://github.com/zmlu/easy-sing-box-central.git
 screen -dmS esb-c
-screen -x -S esb-c -p 0 -X stuff "cd /opt/easy-sing-box-central || exit"
-screen -x -S esb-c -p 0 -X stuff "source /opt/venv/easy-sing-box-central/bin/activate"
-screen -x -S esb-c -p 0 -X stuff "pip3 install -r requirements.txt"
-screen -x -S esb-c -p 0 -X stuff "python3 main.py"
+screen -x -S esb-c -p 0 -X stuff "cd /opt/easy-sing-box-central || exit
+"
+screen -x -S esb-c -p 0 -X stuff "source /opt/venv/easy-sing-box-central/bin/activate
+"
+screen -x -S esb-c -p 0 -X stuff "pip3 install -r requirements.txt
+"
+screen -x -S esb-c -p 0 -X stuff "python3 main.py
+"
