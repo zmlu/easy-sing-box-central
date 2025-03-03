@@ -9,7 +9,6 @@ import requests
 from jinja2 import Environment, PackageLoader, select_autoescape
 
 config_file = os.path.expanduser('~/esb-c.config')
-# config_file = "/Users/zmlu/Downloads/esb-c.config"
 server_port = 6713
 
 env = Environment(
@@ -107,7 +106,7 @@ def get_all_country():
         with open(config_file, 'r') as file:
             esb_c_config = json.load(file)
     for key, value in esb_c_config.items():
-        if key == 'www_dir_random_id':
+        if key == 'www_dir_random_id' or key == 'server_ip' or key == 'server_port':
             continue
         country_list.add(value['country'])
     country_list = sorted(list(country_list))
@@ -115,7 +114,7 @@ def get_all_country():
     for country in country_list:
         vps_list = []
         for key, value in esb_c_config.items():
-            if key == 'www_dir_random_id':
+            if key == 'www_dir_random_id' or key == 'server_ip' or key == 'server_port':
                 continue
             if country == value['country']:
                 vps_list.append(value)
