@@ -376,7 +376,7 @@
           "1.1.1.1/32",
           "8.8.8.8/32"
         ],
-        "outbound": "🎬Netflix"
+        "outbound": "🚀Proxy"
       },
       {{ ad_route_rule }}
       {
