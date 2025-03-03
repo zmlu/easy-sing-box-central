@@ -8,4 +8,4 @@ echo "\\e[1;33msing-box\\033[0m"
 echo "\\e[1;32mhttp://${server_ip}:${server_port}/${www_dir_random_id}/sb.json\\033[0m"
 echo ""
 
-echo "sing-box://import-remote-profile?url=http%3A%2F%2F"+server_port+":"+server_port+"%2F8e59d9%2Fsb.json#esb" | qrencode -o - -t ANSI
+echo "sing-box://import-remote-profile?url=http%3A%2F%2F${server_ip}:${server_port}%2F${www_dir_random_id}%2Fsb.json#esb" | qrencode -o - -t ANSI
