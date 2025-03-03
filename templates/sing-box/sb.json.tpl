@@ -311,7 +311,7 @@
         },
         "reality": {
           "enabled": true,
-          "public_key": "{{ vps.reality_pbk|e }}",
+          "public_key": "{{ vps.public_key }}",
           "short_id": "{{ vps.reality_sid }}"
         },
         "server_name": "yahoo.com",
