@@ -1,4 +1,5 @@
 from flask import Flask, request
+from gevent.pywsgi import WSGIServer
 import requests
 
 app = Flask(__name__)
@@ -9,7 +10,7 @@ def get_ip():
     else:
         return request.environ['REMOTE_ADDR']
 
-@app.route('/api/hello', methods=['GET', 'POST'])
+@app.route('/api/hello', methods=['GET'])
 def hello():
     if request.method == 'GET':
         if 'name' not in request.args:
@@ -34,5 +35,9 @@ def hello():
         return f"Error: {e}", 400
     return "OK"
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    # Debug/Development
+    # app.run(debug=True, host="0.0.0.0", port="5000")
+    # Production
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
