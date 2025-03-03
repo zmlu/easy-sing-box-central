@@ -97,7 +97,10 @@ def write_config(remote_ip, remote_config):
 
     with open(config_file, 'w') as write_f:
         write_f.write(json.dumps(esb_c_config, indent=2, ensure_ascii=False))
-    process_client_config()
+
+    project_base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    project_path = os.path.join(project_base_dir, 'easy-sing-box-central')
+    os.system(f"cd {project_path} && python3 generate_config.py")
 
 
 def get_all_country():
@@ -135,5 +138,6 @@ def replace_country_with_emoji(country):
         country = "🇹🇼台灣"
     return country
 
-def process_client_config():
+if __name__ == '__main__':
     generate_singbox()
+

@@ -5,7 +5,7 @@ import os
 
 from generate_config import write_config, init_base_config, process_client_config
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='/static')
 
 config_file = os.path.expanduser('~/esb-c.config')
 
