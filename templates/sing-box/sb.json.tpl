@@ -206,10 +206,10 @@
       "type": "selector",
       "outbounds": [
         {% for vps in value %}
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-anytls",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-h2",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-tuic",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-reality"{% if not loop.last %},{% endif %}
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-anytls",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality"{% if not loop.last %},{% endif %}
         {% endfor %}
       ],
       "interrupt_exist_connections": true
@@ -221,10 +221,10 @@
       "outbounds": [
         {% for key, value in all_countrys.items() %}
         {% for vps in value %}
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-anytls",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-h2",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-tuic",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-reality"
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-anytls",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality"
         {% endfor %}
         {% if not loop.last %},{% endif %}
         {% endfor %}
@@ -236,7 +236,7 @@
     {% for vps in value %}
     {
       "type": "anytls",
-      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-anytls",
+      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-anytls",
       "server": "{{ vps.server_ip }}",
       "server_port": {{ vps.anytls_port }},
       "password": "{{ vps.password }}",
@@ -255,7 +255,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-h2",
+      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
       "server": "{{ vps.server_ip }}",
       "server_port": {{ vps.h2_port }},
       "up_mbps": 1000,
@@ -279,7 +279,7 @@
     },
     {
       "type": "tuic",
-      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-tuic",
+      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
       "server": "{{ vps.server_ip }}",
       "server_port": {{ vps.tuic_port }},
       "uuid": "{{ vps.password }}",
@@ -298,7 +298,7 @@
     },
     {
       "type": "vless",
-      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org|e }}-reality",
+      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality",
       "server": "{{ vps.server_ip }}",
       "server_port": {{ vps.reality_port }},
       "uuid": "{{ vps.password }}",
@@ -311,7 +311,7 @@
         },
         "reality": {
           "enabled": true,
-          "public_key": "{{ vps.reality_pbk }}",
+          "public_key": "{{ vps.reality_pbk|e }}",
           "short_id": "{{ vps.reality_sid }}"
         },
         "server_name": "yahoo.com",
