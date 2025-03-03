@@ -4,4 +4,5 @@
 
 ```shell
 bash <(curl -Ls https://github.com/zmlu/easy-sing-box-central/raw/master/install.sh?_=$(date +%s))
+bash <(curl -Ls https://github.com/zmlu/easy-sing-box-central/raw/master/sb_qrcode.sh?_=$(date +%s))
 ```
