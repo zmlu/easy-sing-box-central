@@ -430,7 +430,7 @@
         "type": "remote",
         "tag": "echemi{{ random_suffix }}",
         "format": "source",
-        "url": "http://{{ server_ip }}:{{ server_port }}/{{ www_dir_random_id }}/sb_echemi.json",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_echemi.json",
         "download_detour": "direct",
         "update_interval": "24h0m0s"
       },
@@ -438,7 +438,7 @@
         "type": "remote",
         "tag": "mydirect{{ random_suffix }}",
         "format": "source",
-        "url": "http://{{ server_ip }}:{{ server_port }}/{{ www_dir_random_id }}/sb_mydirect.json",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_mydirect.json",
         "download_detour": "direct",
         "update_interval": "24h0m0s"
       },
@@ -446,7 +446,7 @@
         "type": "remote",
         "tag": "myproxy{{ random_suffix }}",
         "format": "source",
-        "url": "http://{{ server_ip }}:{{ server_port }}/{{ www_dir_random_id }}/sb_myproxy.json",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_myproxy.json",
         "download_detour": "direct",
         "update_interval": "24h0m0s"
       },
@@ -454,7 +454,7 @@
         "type": "remote",
         "tag": "mywechat{{ random_suffix }}",
         "format": "source",
-        "url": "http://{{ server_ip }}:{{ server_port }}/{{ www_dir_random_id }}/sb_wechat.json",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_wechat.json",
         "download_detour": "direct",
         "update_interval": "24h0m0s"
       },
