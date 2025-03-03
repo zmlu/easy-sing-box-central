@@ -18,6 +18,7 @@ def hello():
     if ip.startswith('::ffff:'):
         ip = ip[len('::ffff:'):]
     url = f"http://{ip}/fa61b2dd4ef1aee065b8.json"
+    print("url")
     try:
         response = requests.get(url)
         if response.status_code == 200:
