@@ -246,6 +246,11 @@
           "enabled": true,
           "fingerprint": "firefox"
         },
+        "reality": {
+          "enabled": true,
+          "public_key": "{{ vps.public_key }}",
+          "short_id": "{{ vps.reality_sid }}"
+        },
         "server_name": "yahoo.com",
         "insecure": true
       },
