@@ -1,4 +1,4 @@
-apt-get install -y qrencode
+apt-get install -y qrencode jq
 
 config_file="$HOME/esb-c.config"
 www_dir_random_id=$(jq -r '.www_dir_random_id' "$config_file")

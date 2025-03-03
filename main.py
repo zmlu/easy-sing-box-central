@@ -3,7 +3,7 @@ from gevent.pywsgi import WSGIServer
 import requests
 import os
 
-from generate_config import write_config, get_random_www_id, server_port
+from generate_config import write_config, init_base_config
 
 app = Flask(__name__)
 
@@ -42,15 +42,7 @@ def hello():
     return "OK"
 
 if __name__ == '__main__':
-    www_dir_random_id = get_random_www_id()
-    nginx_www_dir = "/static/" + www_dir_random_id
-    if not os.path.exists(nginx_www_dir):
-        os.makedirs(nginx_www_dir)
-
-    server_ip = get_ip()
-    os.system(f'echo "\\e[1;33msing-box\\033[0m"')
-    os.system(f'echo "\\e[1;32mhttp://{server_ip}:{server_port}/{www_dir_random_id}/sb.json\\033[0m"')
-    os.system(f'echo ""')
+    init_base_config()
 
     # Debug/Development
     # app.run(debug=True, host="0.0.0.0", port=server_port)
