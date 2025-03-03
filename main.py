@@ -3,7 +3,7 @@ from gevent.pywsgi import WSGIServer
 import requests
 import os
 
-from generate_config import write_config, init_base_config
+from generate_config import write_config, init_base_config, process_client_config
 
 app = Flask(__name__, static_folder='/static')
 
