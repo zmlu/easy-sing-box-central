@@ -1,3 +1,4 @@
+screen -d
 apt-get install -y git
 apt-get install -y screen
 screen -S esb-c -X quit
