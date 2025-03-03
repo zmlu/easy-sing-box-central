@@ -42,7 +42,7 @@ def hello():
     return "OK"
 
 if __name__ == '__main__':
-    server_ip, server_port, www_dir_random_id, static_path, static_www_dir = init_base_config()
+    server_ip, server_port, www_dir_random_id, nginx_www_dir = init_base_config()
 
     process_client_config()
     # Debug/Development

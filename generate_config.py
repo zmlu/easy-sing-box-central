@@ -18,7 +18,7 @@ env = Environment(
 
 
 def generate_singbox():
-    server_ip, server_port, www_dir_random_id, static_path, static_www_dir = init_base_config()
+    server_ip, server_port, www_dir_random_id, nginx_www_dir = init_base_config()
     random_suffix = ''.join(random.sample(uuid.uuid4().hex, 6))
     ad_dns_rule = env.get_template("/sing-box/ad_dns_rule.json").render(random_suffix=random_suffix) + ","
     ad_route_rule = env.get_template("/sing-box/ad_route_rule.json").render(random_suffix=random_suffix) + ","
@@ -47,16 +47,16 @@ def generate_singbox():
         random_suffix=random_suffix
     )
 
-    with open(static_www_dir + "/sb.json", 'w') as file:
+    with open(nginx_www_dir + "/sb.json", 'w') as file:
         file.write(json.dumps(json.loads(sb_noad_json_content), indent=2, ensure_ascii=False))
 
-    with open(static_www_dir + "/sb-ad.json", 'w') as file:
+    with open(nginx_www_dir + "/sb-ad.json", 'w') as file:
         file.write(json.dumps(json.loads(sb_json_content), indent=2, ensure_ascii=False))
 
-    os.system("cp ./templates/sing-box/my/sb_echemi.json " + static_www_dir)
-    os.system("cp ./templates/sing-box/my/sb_mydirect.json " + static_www_dir)
-    os.system("cp ./templates/sing-box/my/sb_myproxy.json " + static_www_dir)
-    os.system("cp ./templates/sing-box/my/sb_wechat.json " + static_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_echemi.json " + nginx_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_mydirect.json " + nginx_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_myproxy.json " + nginx_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_wechat.json " + nginx_www_dir)
 
 def init_base_config():
     if os.path.exists(config_file):
@@ -78,13 +78,11 @@ def init_base_config():
     with open(config_file, 'w') as write_f:
         write_f.write(json.dumps(esb_c_config, indent=2, ensure_ascii=False))
 
-    project_base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    static_path = os.path.join(project_base_dir, 'easy-sing-box-central', 'static')
-    static_www_dir = static_path + "/" + www_dir_random_id
-    if not os.path.exists(static_www_dir):
-        os.makedirs(static_www_dir)
+    nginx_www_dir = "/var/www/html/" + www_dir_random_id
+    if not os.path.exists(nginx_www_dir):
+        os.makedirs(nginx_www_dir)
 
-    return server_ip, server_port, www_dir_random_id, static_path, static_www_dir
+    return server_ip, server_port, www_dir_random_id, nginx_www_dir
 
 
 def write_config(remote_ip, remote_config):
