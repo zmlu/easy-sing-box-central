@@ -3,7 +3,7 @@ from gevent.pywsgi import WSGIServer
 import requests
 import os
 
-from generate_config import write_config, init_base_config
+from generate_config import write_config, init_base_config, process_client_config
 
 app = Flask(__name__)
 
@@ -44,6 +44,7 @@ def hello():
 if __name__ == '__main__':
     server_ip, server_port, www_dir_random_id, static_path, static_www_dir = init_base_config()
 
+    process_client_config()
     # Debug/Development
     # app.run(debug=True, host="0.0.0.0", port=server_port)
     # Production
