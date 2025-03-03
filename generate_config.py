@@ -22,6 +22,15 @@ def get_ip_info():
     data_str = curl_out.decode('utf-8')
     ip_infp = json.loads(data_str)
     server_ip = ip_infp.get('ip')
+
+    if os.path.exists(config_file):
+        with open(config_file, 'r') as file:
+            esb_c_config = json.load(file)
+
+    esb_c_config['server_ip'] = server_ip
+    esb_c_config['server_port'] = server_port
+    with open(config_file, 'w') as write_f:
+        write_f.write(json.dumps(esb_c_config, indent=2, ensure_ascii=False))
     return server_ip
 
 def generate_singbox():
