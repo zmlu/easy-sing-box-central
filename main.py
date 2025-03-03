@@ -1,10 +1,13 @@
 from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 import requests
+import os
 
-from utils import write_config
+from generate_config import write_config, get_random_www_id, server_port
 
 app = Flask(__name__)
+
+config_file = os.path.expanduser('~/esb-c.config')
 
 def get_ip():
     if 'HTTP_X_FORWARDED_FOR' in request.environ:
@@ -39,8 +42,13 @@ def hello():
     return "OK"
 
 if __name__ == '__main__':
+    www_dir_random_id = get_random_www_id()
+    nginx_www_dir = "/static/" + www_dir_random_id
+    if not os.path.exists(nginx_www_dir):
+        os.makedirs(nginx_www_dir)
+
     # Debug/Development
-    # app.run(debug=True, host="0.0.0.0", port="5000")
+    # app.run(debug=True, host="0.0.0.0", port=server_port)
     # Production
-    http_server = WSGIServer(('', 5000), app)
+    http_server = WSGIServer(('', server_port), app)
     http_server.serve_forever()

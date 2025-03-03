@@ -11,5 +11,5 @@ echo "重置 easy-sing-box-central..."
 rm -rf /opt/easy-sing-box-central/
 cd /opt && git clone -q https://github.com/zmlu/easy-sing-box-central.git
 screen -dmS esb-c
-screen -x -S esb-c -p 0 -X stuff "cd /opt/easy-sing-box-central && source /opt/venv/easy-sing-box-central/bin/activate && pip3 install -r requirements.txt && echo '\\e[1;33m啟動服務...\\033[0m' && python3 main.py
+screen -x -S esb-c -p 0 -X stuff "cd /opt/easy-sing-box-central && source /opt/venv/easy-sing-box-central/bin/activate && pip3 install -r requirements.txt && echo '啟動服務...' && python3 main.py
 "
