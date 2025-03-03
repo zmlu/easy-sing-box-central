@@ -2,6 +2,8 @@ from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 import requests
 
+from utils import write_config
+
 app = Flask(__name__)
 
 def get_ip():
@@ -12,23 +14,17 @@ def get_ip():
 
 @app.route('/api/hello', methods=['GET'])
 def hello():
-    if request.method == 'GET':
-        if 'name' not in request.args:
-            return "Error", 400
-        name = request.args.get('name')
-    else:
-        return "Method not allowed", 405
-
-    ip = get_ip()
-    url = f"http://{ip}/{name}/esb.config"
+    ip = request.remote_addr
+    url = f"http://{ip}/fa61b2dd4ef1aee065b8.json"
     try:
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
             if data:
+                write_config(ip, data)
                 return data
             else:
-                print("未找到 'h2_obfs_password' 鍵")
+                print("未找到 json")
         else:
             print(f"無法獲取數據：狀態碼 {response.status_code}")
     except requests.exceptions.RequestException as e:
