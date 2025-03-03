@@ -65,7 +65,7 @@ def init_base_config():
     else:
         esb_c_config = {}
 
-    www_dir_random_id = esb_c_config.get('www_dir_random_id', ''.join(random.sample(uuid.uuid4().hex, 6)))
+    www_dir_random_id = esb_c_config.get('www_dir_random_id', ''.join(random.sample(uuid.uuid4().hex, 10)))
     esb_c_config['www_dir_random_id'] = www_dir_random_id
 
     curl_out = subprocess.check_output(['curl', '-s', '-4', 'ip.network/more'])
