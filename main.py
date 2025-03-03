@@ -14,10 +14,14 @@ def get_ip():
 
 @app.route('/api/hello', methods=['GET'])
 def hello():
+    if request.method == 'GET':
+        if 'name' not in request.args:
+            return "Error", 400
+    name = request.args.get('name')
     ip = get_ip()
     if ip.startswith('::ffff:'):
         ip = ip[len('::ffff:'):]
-    url = f"http://{ip}/fa61b2dd4ef1aee065b8.json"
+    url = f"http://{ip}/{name}/esb.config"
     print("url")
     try:
         response = requests.get(url)
