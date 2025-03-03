@@ -22,7 +22,7 @@ def hello():
     if ip.startswith('::ffff:'):
         ip = ip[len('::ffff:'):]
     url = f"http://{ip}/{name}/esb.config"
-    print("url")
+    print("Fetching config from {}".format(url))
     try:
         response = requests.get(url)
         if response.status_code == 200:
