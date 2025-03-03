@@ -47,6 +47,11 @@ if __name__ == '__main__':
     if not os.path.exists(nginx_www_dir):
         os.makedirs(nginx_www_dir)
 
+    server_ip = get_ip()
+    os.system(f'echo "\\e[1;33msing-box\\033[0m"')
+    os.system(f'echo "\\e[1;32mhttp://{server_ip}:{server_port}/{www_dir_random_id}/sb.json\\033[0m"')
+    os.system(f'echo ""')
+
     # Debug/Development
     # app.run(debug=True, host="0.0.0.0", port=server_port)
     # Production
