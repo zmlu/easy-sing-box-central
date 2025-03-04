@@ -15,28 +15,21 @@ def get_ip():
     else:
         return request.environ['REMOTE_ADDR']
 
-@app.route('/api/hello', methods=['GET'])
+@app.route('/api/hello', methods=['POST'])
 def hello():
-    if request.method == 'GET':
-        if 'name' not in request.args:
-            return "Error", 400
-    name = request.args.get('name')
     ip = get_ip()
     if ip.startswith('::ffff:'):
         ip = ip[len('::ffff:'):]
-    url = f"http://{ip}/{name}/esb.config"
-    print("Fetching config from {}".format(url))
     try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
+        if request.is_json:
+            data = request.get_json()
             if data:
                 write_config(ip, data)
                 return data
             else:
                 print("未找到 json")
         else:
-            print(f"無法獲取數據：狀態碼 {response.status_code}")
+            print(f"無法獲取數據")
     except requests.exceptions.RequestException as e:
         return f"Error: {e}", 400
     return "OK"
