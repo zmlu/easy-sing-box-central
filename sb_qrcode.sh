@@ -1,4 +1,10 @@
-apt-get install -y qrencode jq
+#!/bin/bash
+
+# 检查是否为root下运行
+[[ $EUID -ne 0 ]] && echo -e '\033[1;35m请在root用户下运行脚本\033[0m' && exit 1
+
+apt install -y qrencode
+apt install -y jq
 
 clear
 
