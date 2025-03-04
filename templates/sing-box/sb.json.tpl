@@ -241,7 +241,7 @@
       "server_port": {{ vps.anytls_port }},
       "password": "{{ vps.password }}",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
@@ -271,7 +271,7 @@
       },
       "password": "{{ vps.password }}",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "server_name": "www.bing.com",
         "insecure": true,
         "alpn": [
@@ -290,7 +290,7 @@
       "uuid": "{{ vps.password }}",
       "password": "{{ vps.password }}",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "server_name": "www.bing.com",
         "insecure": true,
         "alpn": [
@@ -309,7 +309,7 @@
       "uuid": "{{ vps.password }}",
       "flow": "xtls-rprx-vision",
       "tls": {
-        "enabled": false,
+        "enabled": true,
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
