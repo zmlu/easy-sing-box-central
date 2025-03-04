@@ -10,7 +10,6 @@ apt install -y nginx
 apt install -y jq
 apt install -y python3
 apt install -y python3-pip
-apt install -y python3-pip
 apt install -y python3-venv
 screen -S esb-c -X quit
 screen -wipe
