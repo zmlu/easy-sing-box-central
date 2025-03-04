@@ -1,7 +1,7 @@
 screen -d
-apt-get install -y git
-apt-get install -y screen
-apt-get install -y nginx
+apt install -y git
+apt install -y screen
+apt install -y nginx
 screen -S esb-c -X quit
 screen -wipe
 echo "重置 venv..."
