@@ -242,17 +242,11 @@
       "password": "{{ vps.password }}",
       "tls": {
         "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "{{ vps.public_key }}",
-          "short_id": "{{ vps.reality_sid }}"
-        },
-        "server_name": "yahoo.com",
-        "insecure": true
+        "server_name": "www.bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
       },
       "tcp_fast_open": true,
       "udp_fragment": true,
