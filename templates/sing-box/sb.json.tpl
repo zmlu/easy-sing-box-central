@@ -257,8 +257,8 @@
       "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
       "server": "{{ vps.server_ip }}",
       "server_port": {{ vps.h2_port }},
-      "up_mbps": 1000,
-      "down_mbps": 1000,
+      "up_mbps": 15000,
+      "down_mbps": 15000,
       "obfs": {
         "type": "salamander",
         "password": "{{ vps.h2_obfs_password }}"
