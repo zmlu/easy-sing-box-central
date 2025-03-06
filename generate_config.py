@@ -48,10 +48,10 @@ def generate_singbox():
     )
 
     with open(nginx_www_dir + "/sb.json", 'w') as file:
-        file.write(json.dumps(json.loads(sb_noad_json_content), indent=2, ensure_ascii=False))
-
-    with open(nginx_www_dir + "/sb-ad.json", 'w') as file:
         file.write(json.dumps(json.loads(sb_json_content), indent=2, ensure_ascii=False))
+
+    with open(nginx_www_dir + "/sb-noad.json", 'w') as file:
+        file.write(json.dumps(json.loads(sb_noad_json_content), indent=2, ensure_ascii=False))
 
     os.system("cp ./templates/sing-box/my/sb_echemi.json " + nginx_www_dir)
     os.system("cp ./templates/sing-box/my/sb_mydirect.json " + nginx_www_dir)
