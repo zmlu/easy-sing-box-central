@@ -351,6 +351,19 @@
         "outbound": "🚀Proxy"
       },
       {
+        "ip_cidr": [
+          "1.1.1.1/32",
+          "8.8.8.8/32"
+        ],
+        "outbound": "🚀Proxy"
+      },
+      {
+        "rule_set": [
+          "myproxy{{ random_suffix }}"
+        ],
+        "outbound": "🚀Proxy"
+      },
+      {
         "domain_suffix": [
           {% if country == "DE" %}
           "mcc262.pub.3gppnetwork.org",
@@ -362,13 +375,6 @@
           "mcc310.pub.3gppnetwork.org",
           {% endif %}
           "gspe1-ssl.ls.apple.com"
-        ],
-        "outbound": "🚀Proxy"
-      },
-      {
-        "ip_cidr": [
-          "1.1.1.1/32",
-          "8.8.8.8/32"
         ],
         "outbound": "🚀Proxy"
       },
@@ -404,12 +410,6 @@
           "networktest"
         ],
         "outbound": "🏃‍Test"
-      },
-      {
-        "rule_set": [
-          "myproxy{{ random_suffix }}"
-        ],
-        "outbound": "🚀Proxy"
       },
       {
         "rule_set": [
