@@ -247,7 +247,6 @@
       "outbounds": [
         {% for vps in value %}
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality"{% if not loop.last %},{% endif %}
         {% endfor %}
       ],
@@ -261,7 +260,6 @@
         {% for key, value in all_countrys.items() %}
         {% for vps in value %}
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality"
         {% endfor %}
         {% if not loop.last %},{% endif %}
@@ -272,30 +270,6 @@
     },
     {% for key, value in all_countrys.items() %}
     {% for vps in value %}
-    {
-      "type": "hysteria2",
-      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
-      "server": "{{ vps.server_ip }}",
-      "server_port": {{ vps.h2_port }},
-      "up_mbps": 500,
-      "down_mbps": 1500,
-      "obfs": {
-        "type": "salamander",
-        "password": "{{ vps.h2_obfs_password }}"
-      },
-      "password": "{{ vps.password }}",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      },
-      "tcp_fast_open": true,
-      "udp_fragment": true,
-      "tcp_multi_path": false
-    },
     {
       "type": "tuic",
       "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
