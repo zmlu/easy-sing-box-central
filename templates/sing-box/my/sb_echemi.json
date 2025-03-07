@@ -3,12 +3,14 @@
 	"rules": [
 		{
 			"domain": [
+				"4.ip.skk.moe",
 				"codeup.aliyun.com",
 				"static-www.echemi.co",
 				"sso.dev.echemi.cc",
 				"rabbitmq.dev.echemi.cc",
 				"mysql80.dev.echemi.cc",
 				"mysql57.dev.echemi.cc",
+				"challenges.dev.echemi.cc",
 				"www.echemi.co",
 				"koko.echemi.com",
 				"jps.echemi.com",

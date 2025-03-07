@@ -2,6 +2,11 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "0.ip.skk.moe"
+      ]
+    },
+    {
       "domain_keyword": [
         "bybit"
       ]

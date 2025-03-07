@@ -2,6 +2,11 @@
   "version": 2,
   "rules": [
     {
+      "domain": [
+        "3.ip.skk.moe"
+      ]
+    },
+    {
       "domain_keyword": [
         "microsoft",
         "linkedin",

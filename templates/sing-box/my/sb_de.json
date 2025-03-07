@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain": [
+        "1.ip.skk.moe",
         "epdg.epc.drz1.vodafone-ip.de",
         "epdg.epc.mnc002.mcc262.pub.3gppnetwork.org"
       ]
