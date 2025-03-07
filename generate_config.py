@@ -57,6 +57,9 @@ def generate_singbox():
     os.system("cp ./templates/sing-box/my/sb_mydirect.json " + nginx_www_dir)
     os.system("cp ./templates/sing-box/my/sb_myproxy.json " + nginx_www_dir)
     os.system("cp ./templates/sing-box/my/sb_wechat.json " + nginx_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_crypto.json " + nginx_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_de.json " + nginx_www_dir)
+    os.system("cp ./templates/sing-box/my/sb_us.json " + nginx_www_dir)
 
 def init_base_config():
     if os.path.exists(config_file):

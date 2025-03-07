@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain": [
+        "epdg.epc.drz1.vodafone-ip.de",
+        "epdg.epc.mnc002.mcc262.pub.3gppnetwork.org"
+      ]
+    },
+    {
+      "domain_keyword": [
+        "coinbase"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "coinbase.com",
+        "vodafone.de",
+        "mcc262.pub.3gppnetwork.org"
+      ]
+    }
+  ]
+}

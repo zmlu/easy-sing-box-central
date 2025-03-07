@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_keyword": [
+        "bloomberg"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "crl.t-mobile.com",
+        "ps.t-mobile.com",
+        "t-mobile.com",
+        "mcc310.pub.3gppnetwork.org"
+      ]
+    }
+  ]
+}

@@ -29,6 +29,12 @@
         "tag": "dns-remote"
       },
       {
+        "type": "https",
+        "server": "80.147.145.111",
+        "detour": "🇩🇪德國",
+        "tag": "dns-deutscheTelekom"
+      },
+      {
         "type": "udp",
         "server": "119.29.29.29",
         "tag": "dns-tencent"
@@ -44,6 +50,24 @@
         "inet4_range": "240.0.0.0/4",
         "inet6_range": "fc00::/18",
         "tag": "dns-fakeip"
+      },
+      {
+        "type": "hosts",
+        "tag": "hosts",
+        "predefined": {
+          "epdg.epc.drz1.vodafone-ip.de": "139.7.117.168",
+          "epdg.epc.drz1.vodafone-ip.de": "139.7.117.170",
+          "epdg.epc.mnc002.mcc262.pub.3gppnetwork.org": "139.7.117.168",
+          "epdg.epc.mnc002.mcc262.pub.3gppnetwork.org": "139.7.117.170",
+          "dev.zmlu.me": [
+            "127.0.0.1",
+            "::1"
+          ],
+          "localhost": [
+            "127.0.0.1",
+            "::1"
+          ]
+        }
       }
     ],
     "rules": [
@@ -53,6 +77,22 @@
       },
       {
         "clash_mode": "Global",
+        "server": "dns-google"
+      },
+      {
+        "ip_accept_any": true,
+        "server": "hosts"
+      },
+      {
+        "rule_set": [
+          "myde{{ random_suffix }}"
+        ],
+        "server": "dns-deutscheTelekom"
+      },
+      {
+        "rule_set": [
+          "myus{{ random_suffix }}"
+        ],
         "server": "dns-google"
       },
       {
@@ -359,22 +399,25 @@
       },
       {
         "rule_set": [
-          "myproxy{{ random_suffix }}"
+          "myde{{ random_suffix }}"
         ],
-        "outbound": "🚀Proxy"
+        "outbound": "🇩🇪德國"
       },
       {
-        "domain_suffix": [
-          {% if country == "DE" %}
-          "mcc262.pub.3gppnetwork.org",
-          {% endif %}
-          {% if country == "US" %}
-          "crl.t-mobile.com",
-          "ps.t-mobile.com",
-          "t-mobile.com",
-          "mcc310.pub.3gppnetwork.org",
-          {% endif %}
-          "gspe1-ssl.ls.apple.com"
+        "rule_set": [
+          "myus{{ random_suffix }}"
+        ],
+        "outbound": "🇺🇸美國"
+      },
+      {
+        "rule_set": [
+          "mycrypto{{ random_suffix }}"
+        ],
+        "outbound": "🔐Crypto"
+      },
+      {
+        "rule_set": [
+          "myproxy{{ random_suffix }}"
         ],
         "outbound": "🚀Proxy"
       },
@@ -454,6 +497,30 @@
         "tag": "mywechat{{ random_suffix }}",
         "format": "source",
         "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_wechat.json",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "mycrypto{{ random_suffix }}",
+        "format": "source",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_crypto.json",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "myde{{ random_suffix }}",
+        "format": "source",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_de.json",
+        "download_detour": "direct",
+        "update_interval": "24h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "myus{{ random_suffix }}",
+        "format": "source",
+        "url": "http://{{ server_ip }}/{{ www_dir_random_id }}/sb_us.json",
         "download_detour": "direct",
         "update_interval": "24h0m0s"
       },
