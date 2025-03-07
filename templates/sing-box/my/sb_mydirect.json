@@ -21,13 +21,18 @@
         "IP138.com",
         "www.europapa.com",
         "www.ihuada.com",
-        "codeup.aliyun.com"
+        "codeup.aliyun.com",
+        "gs-loc-cn.apple.com",
+        "api.smoot.apple.cn",
+        "captive.apple.com",
+        "smp-device-content.apple.com"
       ]
     },
     {
       "domain_keyword": [
         "baidu",
-        "ifast"
+        "ifast",
+        "smp-device"
       ]
     },
     {
@@ -45,7 +50,13 @@
         "binancezh.info",
         "binancezh.jp",
         "binancezh.sh",
-        "local"
+        "local",
+        "gspe19-cn-ssl.ls.apple.com",
+        "cn-ssl.ls.apple.com",
+        "cn.ls.apple.com",
+        "cn.apple.com",
+        "icloud.com.cn",
+        "apple.com.cn"
       ]
     },
     {
