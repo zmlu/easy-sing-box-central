@@ -29,7 +29,7 @@
         "tag": "dns-remote"
       },
       {
-        "type": "https",
+        "type": "udp",
         "server": "80.147.145.111",
         "detour": "🇩🇪德國",
         "tag": "dns-deutscheTelekom"
