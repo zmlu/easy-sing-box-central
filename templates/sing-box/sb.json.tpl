@@ -246,9 +246,8 @@
       "type": "selector",
       "outbounds": [
         {% for vps in value %}
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-anytls",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality"{% if not loop.last %},{% endif %}
         {% endfor %}
       ],
@@ -261,9 +260,8 @@
       "outbounds": [
         {% for key, value in all_countrys.items() %}
         {% for vps in value %}
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-anytls",
-        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-tuic",
+        "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
         "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-reality"
         {% endfor %}
         {% if not loop.last %},{% endif %}
@@ -274,24 +272,6 @@
     },
     {% for key, value in all_countrys.items() %}
     {% for vps in value %}
-    {
-      "type": "anytls",
-      "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-anytls",
-      "server": "{{ vps.server_ip }}",
-      "server_port": {{ vps.anytls_port }},
-      "password": "{{ vps.password }}",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      },
-      "tcp_fast_open": true,
-      "udp_fragment": true,
-      "tcp_multi_path": false
-    },
     {
       "type": "hysteria2",
       "tag": "[{{ vps.country }}-{{ loop.index }}]{{ vps.vps_org }}-h2",
